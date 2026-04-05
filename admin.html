@@ -258,6 +258,14 @@ tr:hover td{background:#f8fafc}
 <div class="toast" id="toast"></div>
 
 <script>
+  // ── MOT DE PASSE ─────────────────────────
+const PASS = 'Plancoet@22130';
+if(sessionStorage.getItem('eb-auth') !== PASS){
+  const input = prompt('Mot de passe :');
+  if(input !== PASS){ document.body.innerHTML = '<p style="font-family:sans-serif;padding:2rem">Accès refusé.</p>'; throw new Error('auth'); }
+  sessionStorage.setItem('eb-auth', PASS);
+}
+// ── CONFIG ──────────────────────────────
 // ── CONFIG ──────────────────────────────
 let GH={owner:'',repo:'',branch:'main',token:''};
 let modCount=0;
